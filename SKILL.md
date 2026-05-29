@@ -19,6 +19,20 @@ When the user asks for REAPER help, work out which of the five lanes they are in
 
 If they have never opened REAPER's scripting side before, start with `reference/01-getting-started.md`.
 
+## Novice mode: "make me a song"
+
+When someone says "make me a song" (or similar: "build me a track", "give me something to start with"), point them at `scripts/05_make_me_a_song.lua`. It builds a full multi-track skeleton in one run: drums, bass, chords and melody, with section markers, the tempo set, and ReaSynth loaded on the melodic tracks so it plays immediately.
+
+Drive it conversationally:
+
+1. Ask them one or two questions: which genre (lofi, house, synthwave, ambient, rock) and what key.
+2. Set `GENRE` and `KEY_ROOT` at the top of the script to match, then have them run it.
+3. From there, take edit requests in plain English ("make the chorus busier", "add a bridge", "swap to a minor key", "make the bass simpler") and edit the script's settings or generation logic for them.
+
+The drum track uses correct General MIDI drum notes but no kit is loaded (ReaSynth cannot play a real kit). Tell the user to point the Drums track at a drum sampler or VSTi they own. Everything is one undo step.
+
+For a fully conversational "make me a song" with no script at all, the alternative is an MCP server (see `reference/03-agent-control-mcp.md`); `bonfire-audio/reaper-mcp` is aimed exactly at this.
+
 ## Ready-to-run starters
 
 The `scripts/` folder has working Lua ReaScripts. Tell the user to drop them into REAPER's Scripts folder (`Options > Show REAPER resource path`), then `Actions > Show action list > New action > Load ReaScript`. Walk them through one before writing anything new:
@@ -27,6 +41,7 @@ The `scripts/` folder has working Lua ReaScripts. Tell the user to drop them int
 - `scripts/02_color_and_route_by_name.lua` - finds tracks whose name contains a keyword, colours them, and folders them. Shows the real loop most utilities use.
 - `scripts/03_generate_chord_progression.lua` - writes a 4-bar MIDI chord progression onto the selected track at the edit cursor. The "composer" starter.
 - `scripts/04_humanize_selected_midi.lua` - nudges velocity and timing on selected MIDI notes so programmed parts feel less rigid.
+- `scripts/05_make_me_a_song.lua` - the novice headline. Builds a whole genre-aware song skeleton in one run (see above).
 
 There is also `jsfx/velocity_randomizer.jsfx`, a small MIDI effect they can load in front of an instrument.
 

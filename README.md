@@ -43,6 +43,12 @@ Then in Claude Code, just ask in plain English: "help me write a REAPER script t
 
 You do not need the skill machinery. Clone the repo, read the references, and copy any script in `scripts/` straight into REAPER.
 
+## Just want a song right now?
+
+Run `scripts/05_make_me_a_song.lua`. It builds a complete multi-track skeleton (drums, bass, chords, melody) in one click, sets the tempo, adds section markers, and loads a synth so it plays straight away. Open the file, set `GENRE` (lofi, house, synthwave, ambient or rock) and `KEY_ROOT` at the top, drop it in your Scripts folder, and run it. Then ask your assistant to reshape it in plain English: "make the chorus busier", "add a bridge", "give me a darker key".
+
+This is the "novice mode" idea: you describe a song, you get one to start from, and you edit by talking.
+
 ## Run your first script in two minutes
 
 1. In REAPER: `Options > Show REAPER resource path in explorer/finder`. The `Scripts` folder is in there.
