@@ -46,3 +46,7 @@ finished mix in REAPER
 ```
 
 Ask the assistant to build this for your operating system and your folder layout. It is a great second or third project once you are comfortable running scripts.
+
+## A ready-made version
+
+`scripts/06_export_release_bundle.lua` in this repo does the second half of that chain for you. Render your master to WAV the normal way, run the script, pick the WAV, and it writes a 320 kbps MP3 and a waveform peaks JSON into a folder named after the track. It needs ffmpeg and audiowaveform installed (`brew install ffmpeg audiowaveform` on macOS). It targets macOS and Linux; ask your assistant for a Windows version if you need one. It deliberately does not render for you, because render settings belong in REAPER's own dialog where you can see them.

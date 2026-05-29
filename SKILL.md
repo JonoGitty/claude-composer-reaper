@@ -42,6 +42,7 @@ The `scripts/` folder has working Lua ReaScripts. Tell the user to drop them int
 - `scripts/03_generate_chord_progression.lua` - writes a 4-bar MIDI chord progression onto the selected track at the edit cursor. The "composer" starter.
 - `scripts/04_humanize_selected_midi.lua` - nudges velocity and timing on selected MIDI notes so programmed parts feel less rigid.
 - `scripts/05_make_me_a_song.lua` - the novice headline. Builds a whole genre-aware song skeleton in one run (see above).
+- `scripts/06_export_release_bundle.lua` - takes a finished master WAV and produces a 320 kbps MP3 plus a waveform peaks JSON, ready to upload. Needs ffmpeg and audiowaveform installed. macOS/Linux; ask for a Windows variant.
 
 There is also `jsfx/velocity_randomizer.jsfx`, a small MIDI effect they can load in front of an instrument.
 
