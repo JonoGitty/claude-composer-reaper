@@ -26,6 +26,7 @@ References:
 - `04-jsfx-effects.md` - build your own effects and MIDI tools in JSFX, REAPER's built-in effect language
 - `05-music-ai-toolkit.md` - stem separation, mastering, hum-to-MIDI, AI vocals and where they slot into REAPER
 - `06-from-mix-to-release.md` - turn a finished mix into release files (WAV, MP3, waveform data) with one script
+- `07-mcp-field-notes.md` - **read before a long live session.** What actually happens driving REAPER over MCP: the happy path, every way the bridge falls over, a reliable setup + recovery playbook, and two bridge-free fallbacks (author the `.RPP`, or render MIDI offline)
 
 ## Install
 

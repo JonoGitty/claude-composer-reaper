@@ -1,5 +1,10 @@
 # Letting an agent control REAPER live (MCP)
 
+> **Before a real session, read `07-mcp-field-notes.md`.** This file covers the
+> concept; 07 covers what actually happens — the failure modes (stalled bridge,
+> modal dialogs, duplicate instances, multiple project tabs), a reliable setup
+> and recovery playbook, and bridge-free fallbacks for when it won't cooperate.
+
 The newest way to combine REAPER with an AI assistant is to let the assistant control REAPER directly while you watch. You say "build me a drum bus and route the kit into it" and the tracks appear in your open project. This works through something called MCP.
 
 ## What MCP is, in one paragraph

@@ -12,7 +12,7 @@ A head start for using Claude Code (or any coding agent) with REAPER. The person
 When the user asks for REAPER help, work out which of the five lanes they are in and read the matching reference file in `reference/`:
 
 1. **Writing/debugging ReaScript** (the everyday lane) -> `reference/02-scripting-with-claude.md`
-2. **Letting an agent control REAPER live via MCP** -> `reference/03-agent-control-mcp.md`
+2. **Letting an agent control REAPER live via MCP** -> `reference/03-agent-control-mcp.md`, and **`reference/07-mcp-field-notes.md`** (read this before any long live session: real failure modes, setup + recovery playbook, and bridge-free fallbacks)
 3. **Building a custom effect or MIDI tool in JSFX** -> `reference/04-jsfx-effects.md`
 4. **Plugging AI music tools into the workflow** (stems, mastering, MIDI, vocals) -> `reference/05-music-ai-toolkit.md`
 5. **Getting from a finished mix to release files** -> `reference/06-from-mix-to-release.md`
@@ -32,6 +32,11 @@ Drive it conversationally:
 The drum track uses correct General MIDI drum notes but no kit is loaded (ReaSynth cannot play a real kit). Tell the user to point the Drums track at a drum sampler or VSTi they own. Everything is one undo step.
 
 For a fully conversational "make me a song" with no script at all, the alternative is an MCP server (see `reference/03-agent-control-mcp.md`); `bonfire-audio/reaper-mcp` is aimed exactly at this.
+
+**If the live MCP bridge stalls** (writes time out, tracks "vanish", commands hang — see `reference/07-mcp-field-notes.md` for why), don't keep fighting it. Two reliable bridge-free fallbacks:
+
+- **Author the project file directly.** A `.RPP` is plain text; generate tempo, tracks, a copied ReaSynth FX block, and inline `<SOURCE MIDI>` events, write it to disk, and the user double-clicks it. (Read a small REAPER-saved project first as a syntax template.)
+- **Render MIDI to real-instrument audio offline** with `scripts/render_midi_macos.swift` — it plays a GM MIDI file through macOS's built-in DLS synth (real instruments + a real drum kit on channel 10), no soundfont download needed. Then master with ffmpeg (`loudnorm`, fade). This is how to deliver finished audio when REAPER itself is uncooperative.
 
 ## Ready-to-run starters
 
