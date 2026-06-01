@@ -27,6 +27,7 @@ References:
 - `05-music-ai-toolkit.md` - stem separation, mastering, hum-to-MIDI, AI vocals and where they slot into REAPER
 - `06-from-mix-to-release.md` - turn a finished mix into release files (WAV, MP3, waveform data) with one script
 - `07-mcp-field-notes.md` - **read before a long live session.** What actually happens driving REAPER over MCP: the happy path, every way the bridge falls over, a reliable setup + recovery playbook, and two bridge-free fallbacks (author the `.RPP`, or render MIDI offline)
+- `08-composing-as-the-agent.md` - **the headline use: Claude composes a whole track for you.** Brief → harmony/arrangement → MIDI authoring → produce (live MCP, offline render, or `.RPP`) → mix & master. The end-to-end method behind "make me a song"
 
 ## Install
 

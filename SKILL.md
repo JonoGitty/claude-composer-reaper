@@ -1,6 +1,6 @@
 ---
 name: claude-composer-reaper
-description: Help a music producer or audio engineer drive REAPER with Claude Code. Use when the user wants to write or debug ReaScript (Lua/EEL2/Python), build JSFX effects, generate MIDI, automate mixing/rendering/export, set up an MCP server so an agent can control REAPER live, or plug AI music tools (stem separation, mastering, hum-to-MIDI, AI vocals) into a REAPER workflow. Aimed at people who know music well but are new to coding.
+description: Compose and produce music with Claude, and drive REAPER from Claude Code. Use when the user wants Claude to make a track for them ("make me a song", "build a track around this sample", "write me a loop") — composing the music, authoring the MIDI, and rendering finished audio either live through the REAPER MCP bridge or offline (macOS GM synth) when REAPER is unavailable. Also use to write/debug ReaScript (Lua/EEL2/Python), build JSFX effects, automate mixing/rendering/export, set up an MCP server for live agent control of REAPER, or plug AI music tools (stem separation, mastering, hum-to-MIDI, AI vocals) into a REAPER workflow. Aimed at people who know music well but are new to coding.
 ---
 
 # claude-composer-reaper
@@ -9,8 +9,9 @@ A head start for using Claude Code (or any coding agent) with REAPER. The person
 
 ## How to use this skill
 
-When the user asks for REAPER help, work out which of the five lanes they are in and read the matching reference file in `reference/`:
+When the user asks for REAPER help, work out which lane they are in and read the matching reference file in `reference/`:
 
+0. **The user wants YOU to compose / produce a track for them** ("make me a song", "build a track around this sample", "write me a loop") -> `reference/08-composing-as-the-agent.md`. This is the headline use: you do the composing, end to end, with or without REAPER. It pulls in `03`/`07` (live MCP) and the offline renderer as needed.
 1. **Writing/debugging ReaScript** (the everyday lane) -> `reference/02-scripting-with-claude.md`
 2. **Letting an agent control REAPER live via MCP** -> `reference/03-agent-control-mcp.md`, and **`reference/07-mcp-field-notes.md`** (read this before any long live session: real failure modes, setup + recovery playbook, and bridge-free fallbacks)
 3. **Building a custom effect or MIDI tool in JSFX** -> `reference/04-jsfx-effects.md`
@@ -21,7 +22,7 @@ If they have never opened REAPER's scripting side before, start with `reference/
 
 ## Novice mode: "make me a song"
 
-When someone says "make me a song" (or similar: "build me a track", "give me something to start with"), point them at `scripts/05_make_me_a_song.lua`. It builds a full multi-track skeleton in one run: drums, bass, chords and melody, with section markers, the tempo set, and ReaSynth loaded on the melodic tracks so it plays immediately.
+When someone says "make me a song" (or similar: "build me a track", "give me something to start with"), you have two modes. If they want **you to compose the whole thing** (the usual ask now), follow `reference/08-composing-as-the-agent.md` — pick key/tempo/structure, generate the MIDI, and render it (live via MCP, or offline with `scripts/render_midi_macos.swift`). If instead they want a **REAPER skeleton to edit themselves**, point them at `scripts/05_make_me_a_song.lua`. It builds a full multi-track skeleton in one run: drums, bass, chords and melody, with section markers, the tempo set, and ReaSynth loaded on the melodic tracks so it plays immediately.
 
 Drive it conversationally:
 
